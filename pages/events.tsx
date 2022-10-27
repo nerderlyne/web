@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Layout from '~/layout'
 import { useQuery } from 'wagmi'
 
+
 const Events: NextPage = () => {
   const calendar = 'lexdaocoop@gmail.com'
   const { data, isLoading } = useQuery(['calendar'], () =>
