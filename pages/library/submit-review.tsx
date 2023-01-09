@@ -47,366 +47,332 @@ const SubmitReview: NextPage = () => {
   }, [title])
 
   return (
-    <Layout heading="Home" content="Homepage of the legal engineering guild.">
-      <h1 className="font-sans mx-8 px-8 text-3xl font-bold text-white">Submit Article Feedback</h1>
-      <div
-        className="mb-6  flex flex-col 
-                    items-center justify-center"
-      >
-        <label className="font-sans mb-2 block text-sm font-medium dark:text-gray-300">Email Address</label>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          What are your qualifications?
-        </label>
-        <input
-          onChange={(e) => setQualifications(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-          placeholder="Lawyer/Engineer/Professor/Student"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          What countries are you most qualified in?
-        </label>
-        <input
-          onChange={(e) => setCountries(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          Any other relevant qualifications details?
-        </label>
-        <input
-          onChange={(e) => setOtherQualifications(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          Title of the Article
-        </label>
-        <input
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <button className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300" onClick={onSubmit}>
-          Search
-        </button>
-        {error !== null ? (
-          <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">{error}</label>
-        ) : null}
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          How many pages is the article?
-        </label>
-        <div className="mb-4 flex items-center">
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="five"
-            name="default-radio"
-            onChange={(e) => setNumpages(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            1-5
-          </label>
-          <input
-            id="default-radio-2"
-            type="radio"
-            value="twenty"
-            name="default-radio"
-            onChange={(e) => setNumpages(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-2"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            5-20
-          </label>
-          <input
-            id="default-radio-2"
-            type="radio"
-            value="fifty"
-            name="default-radio"
-            onChange={(e) => setNumpages(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-2"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            20-50
-          </label>
-          <input
-            id="default-radio-2"
-            type="radio"
-            value="hundred"
-            name="default-radio"
-            onChange={(e) => setNumpages(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-2"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            50-100
-          </label>
-          <input
-            id="default-radio-2"
-            type="radio"
-            value="hundred plus"
-            name="default-radio"
-            onChange={(e) => setNumpages(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-2"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            100+
-          </label>
+    <Layout heading="Library" content="The archives of the legal engineering guild." criteria={true}>
+      <div className="bg-black l-screen text-white">
+        <div className="absolute top-40 left-32">
+          <h1 className="font-inter">Reviewer Qualifications</h1>
+            <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Email"
+                aria-label="Full name"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-20">
+              <input
+                onChange={(e) => setQualifications(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="What are your qualifications?"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-32">
+              <input
+                onChange={(e) => setCountries(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="What countries are you qualified in?"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-44">
+              <input
+                onChange={(e) => setOtherQualifications(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Any other relevant qualifications details?"
+              />
+            </div>
         </div>
+        <div className="absolute top-32 left-[600px] w-px h-2/3 bg-gray-600"></div>
 
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          What is the primary jurisdiction(s) of this content?
-        </label>
-        <input
-          onChange={(e) => setJurisdictions(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          Is this discussion related to Common Law or Civil Law?
-        </label>
-        <div className="mb-4 flex items-center">
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Common Law"
-            name="law"
-            onChange={(e) => setLaw(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Common Law
-          </label>
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Civil Law"
-            name="law"
-            onChange={(e) => setLaw(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Civil Law
-          </label>
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Not Applicable"
-            name="law"
-            onChange={(e) => setLaw(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Not Applicable
-          </label>
-        </div>
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          If the piece is of a legal nature, is this topic supported by law and enforceable as of the date of the
-          review?
-        </label>
-        <div className="mb-4 flex items-center">
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="true"
-            name="legalenforceable"
-            onChange={(e) => setLegallyEnforceable(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className=" font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Yes
-          </label>
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="false"
-            name="legalenforceable"
-            onChange={(e) => setLegallyEnforceable(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className=" font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            No
-          </label>
-        </div>
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          What are the rulings or codes (law) that the article referring to in order to make this enforceable?
-        </label>
-        <input
-          onChange={(e) => setRulings(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          Please describe the impact of this decision in the given jurisdiction
-        </label>
-        <input
-          onChange={(e) => setImpact(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          How qualified is the author of the piece on the subject?
-        </label>
-        <div className="mb-4 flex items-center">
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Very Qualified"
-            name="qualification"
-            onChange={(e) => setAuthorQualification(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Very Qualified
-          </label>
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Moderately Qualified"
-            name="qualification"
-            onChange={(e) => setAuthorQualification(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Moderately Qualified
-          </label>
-          <input
-            id="default-radio-1"
-            type="radio"
-            value="Not Qualified"
-            name="qualification"
-            onChange={(e) => setAuthorQualification(e.target.value)}
-            className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-          />
-          <label
-            htmlFor="default-radio-1"
-            className="font-sans ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Not Qualified
-          </label>
-        </div>
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          What are the author(s) qualifications?
-        </label>
-        <input
-          onChange={(e) => setAuthorQualifications(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          How would you rate the article for each of its relevant topics and tags? (5= Excellent and 1=Bad)
-        </label>
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">1 2 3 4 5</label>
-        {array
-          ? array.map((topic: any, key: any) => (
-              <div key={key} className="flex">
-                <div className="mr-4 flex items-center">
-                  <p className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
-                  <input
-                    id="inline-radio"
-                    type="radio"
-                    value="1"
-                    name={topic}
-                    onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                    className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                  />
-                  <input
-                    id="inline-radio"
-                    type="radio"
-                    value="2"
-                    name={topic}
-                    onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                    className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                  />
-                  <input
-                    id="inline-radio"
-                    type="radio"
-                    value="3"
-                    name={topic}
-                    onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                    className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                  />
-                  <input
-                    id="inline-radio"
-                    type="radio"
-                    value="4"
-                    name={topic}
-                    onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                    className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                  />
-                  <input
-                    id="inline-radio"
-                    type="radio"
-                    value="5"
-                    name={topic}
-                    onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                    className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                  />
-                </div>
-              </div>
-            ))
-          : null}
+        <div className="absolute top-36 left-1/2">
+          <h1 className="font-inter">Article Feedback</h1>
+          <form className="w-full">
+            <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
+              <input
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full dark:text-gray-400 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Title of the Article"
+                aria-label="Full name"
+              />
+              <button
+                className="flex-shrink-0 border-transparent border-4 text-gray-500 hover:text-gray-200 text-sm py-1 px-2 rounded"
+                type="button"
+                onClick={onSubmit}
+              >
+                Search
+              </button>
+              {error !== null ? (
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{error}</label>
+              ) : null}
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-12">
+              <button
+                id="dropdownNavbarButton"
+                type="button"
+                data-dropdown-toggle="dropdownNavbar"
+                className="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-500 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 md:w-auto dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-200 md:dark:hover:bg-transparent"
+              >
+                How many pages is the article?
+                <svg
+                  className="ml-1 w-4 h-4"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-16">
+              <input
+                onChange={(e) => setJurisdictions(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-[400px] text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="What is the primary jurisdiction(s) of this content?"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-20 w-full">
+              <input
+                onChange={(e) => setLaw(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Is this discussion related to Common Law or Civil Law?"
 
-        <label className="font-sans mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
-          Are there any errors that the Author commits or weak arguments?{' '}
-        </label>
-        <input
-          onChange={(e) => setErrorArgument(e.target.value)}
-          type="text"
-          id="base-input"
-          className="w-64 rounded-md border-gray-300 bg-zinc-800 p-2.5 text-sm dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400  dark:focus:border-stone-700"
-        />
-        <button onClick={onSubmit}>get articles</button>
+              />
+            </div>
+            {/* <div className="flex items-center mb-4">
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="Common Law"
+                name="law"
+                onChange={(e) => setLaw(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              /> 
+              <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Common Law
+              </label>
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="Civil Law"
+                name="law"
+                onChange={(e) => setLaw(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Civil Law
+              </label>
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="Not Applicable"
+                name="law"
+                onChange={(e) => setLaw(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Not Applicable
+              </label>
+            </div> */}
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-24">
+              <input
+                onChange={(e) => setLegallyEnforceable(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-[600px] text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="If the piece is of a legal nature, is this topic supported by law and enforceable as of the date of the
+    review?"
+              />
+            </div>
+
+            {/* <div className="flex items-center mb-4">
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="true"
+                name="legalenforceable"
+                onChange={(e) => setLegallyEnforceable(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className=" ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Yes
+              </label>
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="false"
+                name="legalenforceable"
+                onChange={(e) => setLegallyEnforceable(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className=" ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                No
+              </label>
+            </div> */}
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-28">
+              <input
+                onChange={(e) => setRulings(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-[600px] text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="What are the rulings or codes (law) that the article referring to in order to make this enforceable?"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-32 w-128">
+              <input
+                onChange={(e) => setImpact(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Please describe the impact of this decision in the given jurisdiction"
+              />
+            </div>
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-36">
+              <input
+                onChange={(e) => setAuthorQualification(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="How qualified is the author of the piece on the subject?"
+              />
+            </div>
+
+            {/* <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Very Qualified
+              </label>
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="Moderately Qualified"
+                name="qualification"
+                onChange={(e) => setAuthorQualification(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Moderately Qualified
+              </label>
+              <input
+                id="default-radio-1"
+                type="radio"
+                value="Not Qualified"
+                name="qualification"
+                onChange={(e) => setAuthorQualification(e.target.value)}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="default-radio-1"
+                className="ml-2 text-sm font-medium font-sans text-gray-900 dark:text-gray-300"
+              >
+                Not Qualified
+              </label> */}
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-40">
+              <input
+                onChange={(e) => setRatings(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="How would you rate the article for each of its relevant topics and tags? (5= Excellent and 1=Bad)"
+              />
+            </div>
+
+            {/* {array
+                ? array.map((topic: any, key: any) => (
+                    <div key={key} className="flex">
+                      <div className="flex items-center mr-4">
+                        <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
+                        <input
+                          id="inline-radio"
+                          type="radio"
+                          value="1"
+                          name={topic}
+                          onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <input
+                          id="inline-radio"
+                          type="radio"
+                          value="2"
+                          name={topic}
+                          onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <input
+                          id="inline-radio"
+                          type="radio"
+                          value="3"
+                          name={topic}
+                          onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <input
+                          id="inline-radio"
+                          type="radio"
+                          value="4"
+                          name={topic}
+                          onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <input
+                          id="inline-radio"
+                          type="radio"
+                          value="5"
+                          name={topic}
+                          onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
+                          className="w-8 h-8 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                      </div>
+                    </div>
+                  ))
+                : null} */}
+            <div className="flex items-center border-b border-grey-500 py-2 relative top-44">
+              <input
+                onChange={(e) => setErrorArgument(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Are there any errors that the Author commits or weak arguments?"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </Layout>
   )

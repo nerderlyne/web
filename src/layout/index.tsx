@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Navbar from '~/navbar'
 import Footer from './Footer'
 import Header from './Header'
 
@@ -6,9 +7,10 @@ type LayoutProps = {
   heading: string
   content: string
   children: React.ReactNode
+  criteria: boolean
 }
 
-export default function Layout({ heading, content, children }: LayoutProps) {
+export default function Layout({ heading, content, children, criteria }: LayoutProps) {
   const title = 'LexDAO - ' + heading
 
   return (

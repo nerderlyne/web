@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        Arsenal: ['"Arsenal"', 'sans-serif'],
+
+      },
       colors: {
         // mala
         brand: {
