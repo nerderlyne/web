@@ -3,20 +3,15 @@ import Layout from '~/layout'
 import { GetStaticProps} from 'next'
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link';
-import SubmitArticle from './library/submit-article';
-import SubmitReview from './library/submit-review';
-import Navbar from '../src/navbar';
+import SubmitArticle from '../pages/library/submit-article';
+import SubmitReview from '../pages/library/submit-review';
 
 
 
-const Library: NextPage = () => {
+export default function Navbar() {
 
   return (
-        <Layout heading="library" content="Homepage of the legal engineering guild." criteria={true}>
-         
-    
-
-           {/* <div className=" bg-black h-full min-h-screen text-white flex flex-row">
+           <div className=" bg-black h-full min-h-screen text-white flex flex-row">
             <div className='absolute top-10 left-10 font-Arsenal font-normal text-5xl'>
           <h1 className='font-Arsenal'>Library</h1>
        </div>
@@ -29,12 +24,7 @@ const Library: NextPage = () => {
         <div className='absolute top-14 left-3/4 font-Arsenal font-normal text-2xl'>
         <Link href="/library/submit-review" >Submit Article Review</Link>
         </div>
-        <SubmitReview/>
-        </div> */}
-        </Layout>
-
-
+        </div>
   )
 }
 
-export default Library

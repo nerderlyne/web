@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Layout from '~/layout'
-import Multiselect from './Multiselect'
+import Type from './type'
 import React, { useState } from 'react'
 import axios from 'axios'
 
 const SubmitArticle: NextPage = () => {
-  const [tag, setTag] = useState([
+  const [tag] = useState<string[]>([
     'First Amendment',
     'Accountability',
     'Alternative Dispute Resolution',
@@ -34,10 +34,7 @@ const SubmitArticle: NextPage = () => {
     'DDOS Attacks',
     'DeFi',
   ])
-  const [selectedTag, setSelectedTag] = useState([])
-  const [selectedType, setselectedType] = useState([])
-
-  const [type, setType] = useState([
+  const [typeOptions] = useState<string[]>([
     'Article',
     'Academic Journal',
     'Book',
@@ -47,18 +44,31 @@ const SubmitArticle: NextPage = () => {
     'Practical Law Guide',
     'Case Law',
   ])
+
+
+  const [selectedTag, setSelectedTag] = useState<string[]>([])
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([])
+
+  
+
   const [title, setTitle] = useState('')
   const [email, setEmail] = useState('')
   const [author, setAuthor] = useState('')
   const [link, setLink] = useState('')
   const [notes, setNotes] = useState('')
   const [date, setDate] = useState('')
-//email, author, link, notes, date, title 
+  //email, author, link, notes, date, title
+
+
+  
+
+  
+
   const onSubmit = async () => {
     if (tag && tag.length > 0) {
       const result = await axios
         .post('http://localhost:1337/api/articles', {
-          data: { topics: selectedTag, type: selectedType, email, author, link, notes, date, title}
+          data: { topics: selectedTag, type: selectedTypes, email, author, link, notes, date, title },
         })
         .catch((error) => {
           console.log(error.response)
@@ -67,41 +77,49 @@ const SubmitArticle: NextPage = () => {
     }
   }
   return (
-    <Layout heading="Home" content="Homepage of the legal engineering guild.">
-      <h1 className="text-3xl font-bold text-white">Submit your article</h1>
-      <div className="mb-6">
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email Address</label>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="text"
-          id="base-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
-        <input
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          id="base-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Author</label>
-        <input
-          onChange={(e) => setAuthor(e.target.value)}
-          type="text"
-          id="base-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link</label>
-        <input
-          onChange={(e) => setLink(e.target.value)}
-          type="text"
-          id="base-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Publication Date</label>
-        <div className="relative">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+    <Layout heading="Home" content="Homepage of the legal engineering guild." criteria={true}>
+      <div className="bg-black l-screen text-white">
+        <div className="absolute top-40 left-32">
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Email"
+              aria-label="Full name"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-12">
+            <input
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Title"
+              aria-label="Full name"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-16">
+            <input
+              onChange={(e) => setAuthor(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Author"
+              aria-label="Full name"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-20">
+            <input
+              onChange={(e) => setLink(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Link"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-24">
             <svg
               aria-hidden="true"
               className="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -115,38 +133,50 @@ const SubmitArticle: NextPage = () => {
                 clip-rule="evenodd"
               ></path>
             </svg>
+            <input
+              onChange={(e) => setDate(e.target.value)}
+              type="text"
+              datepicker-format="dd/mm/yyyy"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Publication Date in DD/MM/YYYY"
+              aria-label="Full name"
+            />
           </div>
+          <div className="flex items-center border-grey-500 py-2 w-full relative top-24">
+          <Type title="Type of Article" selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} typeOptions={typeOptions}/>
+          </div>
+   
 
-          <input
-            onChange={(e) => setDate(e.target.value)}
-            datepicker-format="dd/mm/yyyy"
-            type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="DD/MM/YYYY"
-          />
         </div>
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type</label>
-        <Multiselect tag={type} setSelectedTag={setselectedType} selectedTag={selectedType} />
-        {/* <Multiselect type={tag} setType={setTag} /> */}
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Topics/Tags</label>
-        <Multiselect tag={tag} setSelectedTag={setSelectedTag} selectedTag={selectedTag} />
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Notes</label>
-        <input
-          onChange={(e) => setNotes(e.target.value)}
-          type="text"
-          id="base-input"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-        <button
+        <div className=' absolute top-48 left-1/2'>
+        <div className="flex items-center border-grey-500 py-2 w-full">
+          <Type title="Select tags for the Article" selectedTypes={selectedTag} setSelectedTypes={setSelectedTag} typeOptions={tag}/>
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 relative top-4">
+              <input
+                onChange={(e) => setNotes(e.target.value)}
+                type="text"
+                id="base-input"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+                placeholder="Notes/Summary of the Article."
+              />
+            </div>
+            <div className="flex items-center py-2 relative left-60 top-40">
+            <button
           onClick={onSubmit}
           type="button"
           className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
         >
           Submit
         </button>
+        </div>
+            </div>
+
       </div>
     </Layout>
   )
-}
+  }
+
 
 export default SubmitArticle

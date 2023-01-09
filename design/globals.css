@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Arsenal&family=Open+Sans:wght@400;700&display=swap');
+
 
 h1 {
     font-family: "Playfair-Display", serif;
@@ -22,4 +24,7 @@ body {
         font-variation-settings: "wght" 400;
     }
 }
+
+
+  
   

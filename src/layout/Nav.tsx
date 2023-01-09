@@ -7,7 +7,8 @@ export default function Nav() {
       <Item link="/" label="home" />
       <Item link="/events" label="events" />
       <Item link="https://lexdao.discourse.group/" label="forum" isExternal={true} />
-      <Item link="/library" label="library" />
+      <Item link="/library/submit-article" label="library" />
+      <Item link="/archivist" label="archivist" />
     </nav>
   )
 }
