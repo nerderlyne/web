@@ -4,7 +4,9 @@ import { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import NextNProgress from 'nextjs-progressbar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
+import { configureChains, createClient, WagmiConfig } from 'wagmi'
+
+import { mainnet, polygon } from 'wagmi/chains'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import '@rainbow-me/rainbowkit/styles.css'
@@ -13,7 +15,7 @@ import { RainbowKitSiweNextAuthProvider, GetSiweMessageOptions } from '@rainbow-
 import { rainbowTheme } from '~/utils/'
 
 const { chains, provider } = configureChains(
-  [chain.mainnet],
+  [mainnet, polygon],
   [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID ?? '' }), publicProvider()],
 )
 
@@ -28,7 +30,7 @@ const wagmiClient = createClient({
   provider,
 })
 
-const reactQueryClient = new QueryClient()
+const queryClient = new QueryClient()
 
 const Disclaimer: DisclaimerComponent = ({ Text, Link }) => (
   <Text>
@@ -61,10 +63,10 @@ function App({
             }}
             theme={rainbowTheme}
           >
-            <QueryClientProvider client={reactQueryClient}>
+            <QueryClientProvider client={queryClient}>
               <NextNProgress color="#be93e4" />
+              <Component {...pageProps} />
             </QueryClientProvider>
-            <Component {...pageProps} />
           </RainbowKitProvider>
         </RainbowKitSiweNextAuthProvider>
       </SessionProvider>

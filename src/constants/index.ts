@@ -1,0 +1,5 @@
+import { TRIBUTE_ROUTER_ABI } from './abi/TributeRouter'
+
+export const TRIBUTE_ROUTER_ADDRESS = '0x251a92F71095FdC1CF9C797DC2eBC538B29c723f'
+
+export { TRIBUTE_ROUTER_ABI }
