@@ -51,43 +51,43 @@ const SubmitReview: NextPage = () => {
       <div className="bg-black l-screen text-white">
         <div className="absolute top-40 left-32">
           <h1 className="font-inter">Reviewer Qualifications</h1>
-            <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                type="text"
-                id="base-input"
-                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-                placeholder="Email"
-                aria-label="Full name"
-              />
-            </div>
-            <div className="flex items-center border-b border-grey-500 py-2 relative top-20">
-              <input
-                onChange={(e) => setQualifications(e.target.value)}
-                type="text"
-                id="base-input"
-                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-                placeholder="What are your qualifications?"
-              />
-            </div>
-            <div className="flex items-center border-b border-grey-500 py-2 relative top-32">
-              <input
-                onChange={(e) => setCountries(e.target.value)}
-                type="text"
-                id="base-input"
-                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-                placeholder="What countries are you qualified in?"
-              />
-            </div>
-            <div className="flex items-center border-b border-grey-500 py-2 relative top-44">
-              <input
-                onChange={(e) => setOtherQualifications(e.target.value)}
-                type="text"
-                id="base-input"
-                className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-                placeholder="Any other relevant qualifications details?"
-              />
-            </div>
+          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Email"
+              aria-label="Full name"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 relative top-20">
+            <input
+              onChange={(e) => setQualifications(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="What are your qualifications?"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 relative top-32">
+            <input
+              onChange={(e) => setCountries(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="What countries are you qualified in?"
+            />
+          </div>
+          <div className="flex items-center border-b border-grey-500 py-2 relative top-44">
+            <input
+              onChange={(e) => setOtherQualifications(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Any other relevant qualifications details?"
+            />
+          </div>
         </div>
         <div className="absolute top-32 left-[600px] w-px h-2/3 bg-gray-600"></div>
 
@@ -153,7 +153,6 @@ const SubmitReview: NextPage = () => {
                 id="base-input"
                 className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
                 placeholder="Is this discussion related to Common Law or Civil Law?"
-
               />
             </div>
             {/* <div className="flex items-center mb-4">

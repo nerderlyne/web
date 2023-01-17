@@ -46,11 +46,8 @@ const SubmitArticle: NextPage = () => {
     'Case Law',
   ])
 
-
   const [selectedTag, setSelectedTag] = useState<string[]>([])
   const [selectedTypes, setSelectedTypes] = useState<string[]>([])
-
-  
 
   const [title, setTitle] = useState('')
   const [email, setEmail] = useState('')
@@ -141,39 +138,45 @@ const SubmitArticle: NextPage = () => {
             />
           </div>
           <div className="flex items-center border-grey-500 py-2 w-full relative top-24">
-          <Type title="Type of Article" selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} typeOptions={typeOptions}/>
+            <Type
+              title="Type of Article"
+              selectedTypes={selectedTypes}
+              setSelectedTypes={setSelectedTypes}
+              typeOptions={typeOptions}
+            />
           </div>
-   
-
         </div>
-        <div className=' absolute top-48 left-1/2'>
-        <div className="flex items-center border-grey-500 py-2 w-full">
-          <Type title="Select tags for the Article" selectedTypes={selectedTag} setSelectedTypes={setSelectedTag} typeOptions={tag}/>
+        <div className=" absolute top-48 left-1/2">
+          <div className="flex items-center border-grey-500 py-2 w-full">
+            <Type
+              title="Select tags for the Article"
+              selectedTypes={selectedTag}
+              setSelectedTypes={setSelectedTag}
+              typeOptions={tag}
+            />
           </div>
           <div className="flex items-center border-b border-grey-500 py-2 relative top-4">
-              <input
-                onChange={(e) => setNotes(e.target.value)}
-                type="text"
-                id="base-input"
-                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-                placeholder="Notes/Summary of the Article."
-              />
-            </div>
-            <div className="flex items-center py-2 relative left-60 top-40">
+            <input
+              onChange={(e) => setNotes(e.target.value)}
+              type="text"
+              id="base-input"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+              placeholder="Notes/Summary of the Article."
+            />
+          </div>
+          <div className="flex items-center py-2 relative left-60 top-40">
             <button
-          onClick={onSubmit}
-          type="button"
-          className="mr-2 mb-2 rounded-lg bg-gray-800 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-        >
-          Submit
-        </button>
+              onClick={onSubmit}
+              type="button"
+              className="mr-2 mb-2 rounded-lg bg-gray-800 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-            </div>
-
       </div>
     </Layout>
   )
-  }
-
+}
 
 export default SubmitArticle
