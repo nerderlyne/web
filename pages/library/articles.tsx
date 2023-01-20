@@ -10,7 +10,7 @@ const Articles: NextPage = () => {
   }
 
   return (
-    <Layout heading="Home" content="Homepage of the legal engineering guild." >
+    <Layout heading="Home" content="Homepage of the legal engineering guild.">
       <h1 className="text-3xl font-bold underline text-white">Articles</h1>
       <button className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" onClick={fetch}>
         fetch

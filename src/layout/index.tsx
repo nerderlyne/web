@@ -7,7 +7,6 @@ type LayoutProps = {
   heading: string
   content: string
   children: React.ReactNode
-  
 }
 
 export default function Layout({ heading, content, children }: LayoutProps) {
