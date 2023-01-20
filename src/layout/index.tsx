@@ -7,10 +7,10 @@ type LayoutProps = {
   heading: string
   content: string
   children: React.ReactNode
-  criteria: boolean
+  
 }
 
-export default function Layout({ heading, content, children, criteria }: LayoutProps) {
+export default function Layout({ heading, content, children }: LayoutProps) {
   const title = 'LexDAO - ' + heading
 
   return (

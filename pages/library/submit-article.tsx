@@ -71,7 +71,7 @@ const SubmitArticle: NextPage = () => {
   }
 
   return (
-    <Layout heading="Home" content="Homepage of the legal engineering guild." criteria>
+    <Layout heading="Home" content="Homepage of the legal engineering guild.">
       <div className=" l-screen text-white">
         <div className="absolute top-40 left-32">
           <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">

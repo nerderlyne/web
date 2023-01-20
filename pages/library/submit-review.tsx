@@ -13,7 +13,7 @@ const SubmitReview: NextPage = () => {
   const [otherQualifications, setOtherQualifications] = useState('')
 
   return (
-    <Layout heading="Library" content="The archives of the legal engineering guild." criteria>
+    <Layout heading="Library" content="The archives of the legal engineering guild.">
       <div className="flex h-screen grid-cols-2 gap-2 my-12">
         <div className="mx-auto">
           <h1 className="font-inter text-black">Reviewer Qualifications</h1>
