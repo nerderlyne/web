@@ -56,8 +56,8 @@ const SubmitReview: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-32 left-[600px] w-px h-2/3 bg-gray-600"></div>
-        <div className='left-[700px] h-screen'>
-        <ArticleForm/>
+        <div className="left-[700px] h-screen">
+          <ArticleForm />
         </div>
       </div>
     </Layout>
