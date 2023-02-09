@@ -27,7 +27,6 @@ const Collections = ({ title, selectedTypes, setSelectedTypes, typeOptions }: an
             checked={selectedTypes.includes(type)}
             onChange={(e) => handleTypeSelection(type)}
             className="form-checkbox text-brand-600 focus:ring-2  border-gray-300 bg-gray-100 focus:ring-brand-500 rounded-full mx-2"
-              
           />
           {type}
         </label>
@@ -60,7 +59,7 @@ const Collections = ({ title, selectedTypes, setSelectedTypes, typeOptions }: an
 
   return (
     <div>
-      <div className="flex items-center border-b border-grey-500 w-80 py-2 cursor-pointer" >
+      <div className="flex items-center border-b border-grey-500 w-80 py-2 cursor-pointer">
         {selectedTypes.length ? renderSelectedTypes() : <span className="text-gray-700">{title}</span>}
         <svg
           className="ml-1 w-24 h-4"
