@@ -42,9 +42,9 @@ export const ArticleForm = () => {
   }, [title])
 
   return (
-    <div className="h-full">
+    <div className="lg:mx-auto h-full">
       <h1 className="font-inter text-black">Article Feedback</h1>
-      <form className="w-full">
+      <form className="w-full h-full">
         <div className="flex items-center border-b border-grey-500 py-2 w-[600px] relative top-8">
           <input
             onChange={(e) => setTitle(e.target.value)}
@@ -125,12 +125,12 @@ export const ArticleForm = () => {
             <span className="text-s font-normal text-gray-500 px-1">100+</span>
           </div>
         </div>
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-16">
+        <div className="flex items-center border-b border-grey-500 w-full py-2 relative top-16">
           <input
             onChange={(e) => setJurisdictions(e.target.value)}
             type="text"
             id="base-input"
-            className="appearance-none bg-transparent border-none w-[400px] text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
             placeholder="What is the primary jurisdiction(s) of this content?"
           />
         </div>
@@ -258,13 +258,13 @@ export const ArticleForm = () => {
           </div>
         </div>
 
-        <div className=" flex items-center border-b border-grey-500 w-[600px] py-2 relative top-40">
+        <div className=" flex items-center border-b border-grey-500 w-full py-2 relative top-40">
           <input
             onChange={(e) => setRatings(e.target.value)}
             type="text"
             id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-            placeholder="How would you rate the article for each of its relevant topics and tags? (5= Excellent and 1=Bad)"
+            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+            placeholder="How would you rate the article for each of its relevant topics and tags? (5=Excellent and 1=Bad)"
           />
         </div>
 
@@ -317,48 +317,12 @@ export const ArticleForm = () => {
                 </div>
               ))
             : null} */}
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-44">
+        <div className="flex items-center border-b border-grey-500 w-[500px] py-2 relative top-44">
           <input
             onChange={(e) => setErrorArgument(e.target.value)}
             type="text"
             id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Are there any errors that the Author commits or weak arguments?"
-          />
-        </div>
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-44">
-          <input
-            onChange={(e) => setErrorArgument(e.target.value)}
-            type="text"
-            id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Are there any errors that the Author commits or weak arguments?"
-          />
-        </div>
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-44">
-          <input
-            onChange={(e) => setErrorArgument(e.target.value)}
-            type="text"
-            id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Are there any errors that the Author commits or weak arguments?"
-          />
-        </div>
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-44">
-          <input
-            onChange={(e) => setErrorArgument(e.target.value)}
-            type="text"
-            id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Are there any errors that the Author commits or weak arguments?"
-          />
-        </div>
-        <div className="flex items-center border-b border-grey-500 w-[600px] py-2 relative top-44">
-          <input
-            onChange={(e) => setErrorArgument(e.target.value)}
-            type="text"
-            id="base-input"
-            className="appearance-none bg-transparent border-none w-80 text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
+            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
             placeholder="Are there any errors that the Author commits or weak arguments?"
           />
         </div>

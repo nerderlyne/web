@@ -14,8 +14,8 @@ const SubmitReview: NextPage = () => {
 
   return (
     <Layout heading="Library" content="The archives of the legal engineering guild.">
-      <div className="flex h-screen grid-cols-2 gap-2 my-12">
-        <div className="mx-auto">
+      <div className="flex grid-cols-2 my-14 h-full">
+        <div className="mx-44">
           <h1 className="font-inter text-black">Reviewer Qualifications</h1>
           <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
             <input
@@ -56,7 +56,9 @@ const SubmitReview: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-32 left-[600px] w-px h-2/3 bg-gray-600"></div>
-        <ArticleForm />
+        <div className='left-[700px] h-screen'>
+        <ArticleForm/>
+        </div>
       </div>
     </Layout>
   )
