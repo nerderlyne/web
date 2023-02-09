@@ -19,14 +19,15 @@ const Collections = ({ title, selectedTypes, setSelectedTypes, typeOptions }: an
 
   const renderTypeOptions = () => {
     return typeOptions.map((type, index) => (
-      <div key={index} className="px-3 py-2">
+      <div key={index} className="px-3 py-2 bg-white">
         <label>
           <input
             type="checkbox"
             value={type}
             checked={selectedTypes.includes(type)}
             onChange={(e) => handleTypeSelection(type)}
-            className="form-checkbox text-gray-700 bg-white-400 rounded-full mx-2"
+            className="form-checkbox text-brand-600 focus:ring-2  border-gray-300 bg-gray-100 focus:ring-brand-500 rounded-full mx-2"
+              
           />
           {type}
         </label>
@@ -59,12 +60,13 @@ const Collections = ({ title, selectedTypes, setSelectedTypes, typeOptions }: an
 
   return (
     <div>
-      <div className="flex items-center border-b border-grey-500 w-80 py-2 cursor-pointer" onClick={toggleDropdown}>
+      <div className="flex items-center border-b border-grey-500 w-80 py-2 cursor-pointer" >
         {selectedTypes.length ? renderSelectedTypes() : <span className="text-gray-700">{title}</span>}
         <svg
-          className="ml-1 w-4 h-4"
+          className="ml-1 w-24 h-4"
+          onClick={toggleDropdown}
           aria-hidden="true"
-          fill="currentColor"
+          fill="black"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -76,7 +78,7 @@ const Collections = ({ title, selectedTypes, setSelectedTypes, typeOptions }: an
         </svg>
       </div>
       {isDropdownOpen && (
-        <div className="bg-black text-gray-700 border-white rounded-md shadow-lg py-2 border border-grey-400 h-64 w-64 overflow-auto">
+        <div className="text-gray-700 border-white rounded-md shadow-lg py-2 border border-grey-400 h-64 w-64 overflow-auto">
           {renderTypeOptions()}
         </div>
       )}
