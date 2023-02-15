@@ -59,9 +59,8 @@ const SubmitReview: NextPage = () => {
         <div className="left-[700px]">
           <ArticleForm />
         </div>
-       
       </div>
-</Layout>
+    </Layout>
   )
 }
 

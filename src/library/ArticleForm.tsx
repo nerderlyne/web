@@ -283,35 +283,34 @@ export const ArticleForm = () => {
         </span>
       </div>
 
-      
       {array
         ? array.map((topic: any, key: any) => (
             <div key={key} className="flex">
               <div className=" flex items-center">
-                  <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
+                <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
 
-                  <div className="flex items-center m-3">
-                    {stars.map((star) =>
-                      star.checked ? (
-                        <FaStar
-                          key={star.id}
-                          onClick={() => {
-                            handleCheck(star.id)
-                          }}
-                          className="cursor-pointer text-2xl"
-                        />
-                      ) : (
-                        <FaRegStar
-                          key={star.id}
-                          onClick={() => {
-                            handleCheck(star.id)
-                          }}
-                          className="cursor-pointer text-2xl"
-                        />
-                      ),
-                    )}
-                  </div>
+                <div className="flex items-center m-3">
+                  {stars.map((star) =>
+                    star.checked ? (
+                      <FaStar
+                        key={star.id}
+                        onClick={() => {
+                          handleCheck(star.id)
+                        }}
+                        className="cursor-pointer text-2xl"
+                      />
+                    ) : (
+                      <FaRegStar
+                        key={star.id}
+                        onClick={() => {
+                          handleCheck(star.id)
+                        }}
+                        className="cursor-pointer text-2xl"
+                      />
+                    ),
+                  )}
                 </div>
+              </div>
             </div>
           ))
         : null}
@@ -395,10 +394,6 @@ export const ArticleForm = () => {
           placeholder="Are there any errors that the Author commits or weak arguments?"
         />
       </div>
-
-
-
-
     </div>
   )
 }
