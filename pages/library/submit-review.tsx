@@ -14,10 +14,10 @@ const SubmitReview: NextPage = () => {
 
   return (
     <Layout heading="Library" content="The archives of the legal engineering guild.">
-      <div className="flex grid-cols-2 my-14 h-full">
+      <div className="flex grid-cols-2 my-14 min-h-screen">
         <div className="mx-44">
           <h1 className="font-inter text-black">Reviewer Qualifications</h1>
-          <div className="flex items-center border-b border-grey-500 py-2 w-full relative top-8">
+          <div className=" items-center border-b border-grey-500 py-2 w-full relative top-8">
             <input
               onChange={(e) => setEmail(e.target.value)}
               type="text"
@@ -27,7 +27,7 @@ const SubmitReview: NextPage = () => {
               aria-label="Full name"
             />
           </div>
-          <div className="flex items-center border-b border-grey-500 py-2 relative top-20">
+          <div className=" items-center border-b border-grey-500 py-2 relative top-20">
             <input
               onChange={(e) => setQualifications(e.target.value)}
               type="text"
@@ -36,7 +36,7 @@ const SubmitReview: NextPage = () => {
               placeholder="What are your qualifications?"
             />
           </div>
-          <div className="flex items-center border-b border-grey-500 py-2 relative top-32">
+          <div className=" items-center border-b border-grey-500 py-2 relative top-32">
             <input
               onChange={(e) => setCountries(e.target.value)}
               type="text"
@@ -45,7 +45,7 @@ const SubmitReview: NextPage = () => {
               placeholder="What countries are you qualified in?"
             />
           </div>
-          <div className="flex items-center border-b border-grey-500 py-2 relative top-44">
+          <div className=" items-center border-b border-grey-500 py-2 relative top-44">
             <input
               onChange={(e) => setOtherQualifications(e.target.value)}
               type="text"
@@ -55,12 +55,13 @@ const SubmitReview: NextPage = () => {
             />
           </div>
         </div>
-        <div className="absolute top-32 left-[600px] w-px h-2/3 bg-gray-600"></div>
-        <div className="left-[700px] h-screen">
+        <div className="absolute top-32 left-[600px] w-px h-full bg-gray-600"></div>
+        <div className="left-[700px]">
           <ArticleForm />
         </div>
+       
       </div>
-    </Layout>
+</Layout>
   )
 }
 
