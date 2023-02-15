@@ -63,7 +63,7 @@ export const ArticleForm = () => {
   }, [title])
 
   return (
-    <div className="lg:mx-auto">
+    <div className="">
       <h1 className="font-inter text-black">Article Feedback</h1>
       <div className="flex items-center border-b border-grey-500 w-[600px]">
         <input
@@ -367,24 +367,6 @@ export const ArticleForm = () => {
               ))
             : null} */}
 
-      <div className=" border-b border-grey-500 w-[500px] mt-6 py-1 ">
-        <input
-          onChange={(e) => setErrorArgument(e.target.value)}
-          type="text"
-          id="base-input"
-          className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-          placeholder="Are there any errors that the Author commits or weak arguments?"
-        />
-      </div>
-      <div className=" border-b border-grey-500 w-[500px] mt-6 py-1 ">
-        <input
-          onChange={(e) => setErrorArgument(e.target.value)}
-          type="text"
-          id="base-input"
-          className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight border-transparent focus:border-transparent focus:ring-0"
-          placeholder="Are there any errors that the Author commits or weak arguments?"
-        />
-      </div>
       <div className=" border-b border-grey-500 w-[500px] mt-6 py-1 ">
         <input
           onChange={(e) => setErrorArgument(e.target.value)}
