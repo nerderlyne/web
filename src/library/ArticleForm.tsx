@@ -304,8 +304,8 @@ export const ArticleForm = () => {
                       key={rating}
                       className={`cursor-pointer ${
                         rating <= ratings[topic.toLowerCase()]
-                          ? 'inline-block h-6 w-6 rounded-full text-yellow-500'
-                          : 'inline-block h-6 w-6 rounded-full text-yellow-200'
+                          ? 'inline-block h-6 w-6 rounded-full text-brand-500'
+                          : 'inline-block h-6 w-6 rounded-full text-brand-200'
                       }`}
                       onClick={() => handleClick(topic.toLowerCase(), rating)}
                     />
