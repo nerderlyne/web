@@ -32,28 +32,27 @@ export const ArticleForm = () => {
 
   let article: any
   const onSubmit = async () => {
-   axios
+    axios
       .get('http://localhost:1337/api/articles')
       .then((response) => {
         console.log(response.data.data.title)
         const articles = response.data.data
         article = articles.filter((item: any) => item['attributes']['title'] === title)
-        console.log(article[0].attributes.topics, "topics",)
+        console.log(article[0].attributes.topics, 'topics')
         setArray(article[0].attributes.topics)
       })
       .catch((error) => {
         console.log(error)
         setError('Article not found. Please enter a valid article.')
-      }) 
+      })
   }
 
   const handleClick = (topic: string, rating: number): void => {
     setRatings((prevRatings) => ({
       ...prevRatings,
       [topic]: rating,
-    }));
-  };
-
+    }))
+  }
 
   const handleCheck = (id: any, topic: any) => {
     setRating(id)
@@ -68,7 +67,6 @@ export const ArticleForm = () => {
       }),
     )
   }
-  
 
   useEffect(() => {
     //onSubmit();
@@ -301,17 +299,17 @@ export const ArticleForm = () => {
               <div className=" flex items-center m-3">
                 <p className="text-gray-500">{topic}</p>
                 <div className="ml-4">
-                {[1, 2, 3, 4, 5].map((rating) => (
-            <FaStar
-              key={rating}
-              className={`cursor-pointer ${
-                rating <= ratings[topic.toLowerCase()]
-                  ? "inline-block h-6 w-6 rounded-full text-yellow-500"
-                  : "inline-block h-6 w-6 rounded-full text-yellow-200"
-              }`}
-              onClick={() => handleClick(topic.toLowerCase(), rating)}
-            />
-          ))}
+                  {[1, 2, 3, 4, 5].map((rating) => (
+                    <FaStar
+                      key={rating}
+                      className={`cursor-pointer ${
+                        rating <= ratings[topic.toLowerCase()]
+                          ? 'inline-block h-6 w-6 rounded-full text-yellow-500'
+                          : 'inline-block h-6 w-6 rounded-full text-yellow-200'
+                      }`}
+                      onClick={() => handleClick(topic.toLowerCase(), rating)}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
