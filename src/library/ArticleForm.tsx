@@ -18,6 +18,7 @@ export const ArticleForm = () => {
   //text
   const [authorQualifications, setAuthorQualifications] = useState('')
   const [rating, setRating] = useState(0)
+  const [ratings, setRatings] = useState<Record<string, number>>({})
   //Weak Arguments
   const [errorArgument, setErrorArgument] = useState('')
   const [error, setError] = useState('')
@@ -31,23 +32,33 @@ export const ArticleForm = () => {
 
   let article: any
   const onSubmit = async () => {
-    axios
+   axios
       .get('http://localhost:1337/api/articles')
       .then((response) => {
         console.log(response.data.data.title)
         const articles = response.data.data
         article = articles.filter((item: any) => item['attributes']['title'] === title)
-        console.log(article[0].attributes.topics)
+        console.log(article[0].attributes.topics, "topics",)
         setArray(article[0].attributes.topics)
       })
       .catch((error) => {
         console.log(error)
         setError('Article not found. Please enter a valid article.')
-      })
+      }) 
   }
 
-  const handleCheck = (id: any) => {
+  const handleClick = (topic: string, rating: number): void => {
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [topic]: rating,
+    }));
+  };
+
+
+  const handleCheck = (id: any, topic: any) => {
     setRating(id)
+    setRatings({ ...ratings, [topic]: id })
+
     setStars((prev) =>
       prev.map((star) => {
         if (star.id <= id) {
@@ -57,6 +68,7 @@ export const ArticleForm = () => {
       }),
     )
   }
+  
 
   useEffect(() => {
     //onSubmit();
@@ -286,88 +298,27 @@ export const ArticleForm = () => {
       {array
         ? array.map((topic: any, key: any) => (
             <div key={key} className="flex">
-              <div className=" flex items-center">
-                <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
-
-                <div className="flex items-center m-3">
-                  {stars.map((star) =>
-                    star.checked ? (
-                      <FaStar
-                        key={star.id}
-                        onClick={() => {
-                          handleCheck(star.id)
-                        }}
-                        className="cursor-pointer text-2xl"
-                      />
-                    ) : (
-                      <FaRegStar
-                        key={star.id}
-                        onClick={() => {
-                          handleCheck(star.id)
-                        }}
-                        className="cursor-pointer text-2xl"
-                      />
-                    ),
-                  )}
+              <div className=" flex items-center m-3">
+                <p className="text-gray-500">{topic}</p>
+                <div className="ml-4">
+                {[1, 2, 3, 4, 5].map((rating) => (
+            <FaStar
+              key={rating}
+              className={`cursor-pointer ${
+                rating <= ratings[topic.toLowerCase()]
+                  ? "inline-block h-6 w-6 rounded-full text-yellow-500"
+                  : "inline-block h-6 w-6 rounded-full text-yellow-200"
+              }`}
+              onClick={() => handleClick(topic.toLowerCase(), rating)}
+            />
+          ))}
                 </div>
               </div>
             </div>
           ))
         : null}
 
-      {/* {array
-            ? array.map((topic: any, key: any) => (
-                <div key={key} className="flex">
-                  <div className="flex items-center mr-4">
-                    <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{topic}</p>
-                    
-
-                    <input
-                      id="inline-radio"
-                      type="radio"
-                      value="1"
-                      name={topic}
-                      onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <input
-                      id="inline-radio"
-                      type="radio"
-                      value="2"
-                      name={topic}
-                      onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <input
-                      id="inline-radio"
-                      type="radio"
-                      value="3"
-                      name={topic}
-                      onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <input
-                      id="inline-radio"
-                      type="radio"
-                      value="4"
-                      name={topic}
-                      onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <input
-                      id="inline-radio"
-                      type="radio"
-                      value="5"
-                      name={topic}
-                      onChange={(e) => setRatings({ ...ratings, [topic]: e.target.value })}
-                      className="w-8 h-8 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                  </div>
-                </div>
-              ))
-            : null} */}
-
-      <div className=" border-b border-grey-500 w-[500px] mt-6 py-1 ">
+      <div className=" border-grey-500 mt-6 w-[500px] border-b py-1 ">
         <input
           onChange={(e) => setErrorArgument(e.target.value)}
           type="text"
