@@ -8,7 +8,7 @@ const Library: NextPage = () => {
       <div className="flex h-screen flex-col items-center justify-center">
         <div className="flex space-x-4">
           <div className="h-[80px] w-[200px] rounded-md bg-gray-900 px-8 py-4 text-xl font-bold text-white">
-            <Link href="/library/collections">Collections</Link>
+            <Link href="/library/archivist">Archivist</Link>
           </div>
           <div className="h-[80px] w-[200px] rounded-md bg-gray-900 px-8 py-4 text-xl font-bold text-white">
             <Link href="/library/catalogue">Catalogue</Link>

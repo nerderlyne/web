@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Navbar from '~/navbar'
 import Footer from './Footer'
 import Header from './Header'
 
